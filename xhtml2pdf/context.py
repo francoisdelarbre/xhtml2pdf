@@ -349,11 +349,14 @@ class pisaCSSBuilder(css.CSSBuilder):
                 bottomPadding=padding_bottom,
                 topPadding=padding_top,
                 showBoundary=frame_border))
-
+        
+        next_page = data.get('-pdf-page-nextpage', None)
+        
         pt = PmlPageTemplate(
             id=name,
             frames=frameList,
             pagesize=c.pageSize,
+            autoNextPageTemplate=next_page
         )
         pt.pisaStaticList = staticList
         pt.pisaBackground = background
